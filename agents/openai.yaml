@@ -1,0 +1,4 @@
+interface:
+  display_name: "Freestyle"
+  short_description: "Discover the route through evidence and verified progress"
+  default_prompt: "Use $freestyle to find and verify a workable route to this objective, testing uncertain assumptions as needed."
