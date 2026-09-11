@@ -13,7 +13,7 @@ Discover the route while solving the problem.
 
 - **Observation != interpretation.** What happened is evidence; why it happened is a hypothesis.
 - **Execution != success.** Verify the intended effect on the intended target.
-- **Prior effort != evidence.** Keep explanations only while evidence supports them.
+- **Prior effort != evidence.** Drop hypotheses the evidence stops supporting.
 - **Method freedom != authority expansion.** Permissions, safety, scope, and approvals remain binding.
 
 ## Entry and working agreement
@@ -26,13 +26,17 @@ Retrieve a reliable procedure when that is cheaper than discovery. Apply a domai
 
 Use the loop internally. Share concise findings, consequential decisions, and remaining uncertainty, not a transcript of deliberation or mandatory forms.
 
+### Reference routing
+
+Load [references/probe-patterns.md](references/probe-patterns.md) when choosing or bounding a test for an unfamiliar control, tool, interface, layered system, retry, or intermittent failure. Load [references/research-and-evidence.md](references/research-and-evidence.md) when evidence is noisy, external, ambiguous, or being used to support a causal claim.
+
 ## Loop
 
 `inspect -> frame -> hypothesize -> discriminate -> probe -> verify -> update`
 
 When diagnosis is unnecessary and the next action is obvious, low-impact, reversible, and directly verifiable, use `inspect -> act -> check`.
 
-The check must confirm the intended effect. The fast path does not resolve competing explanations or justify actions that materially alter shared state, destroy evidence, or complicate recovery.
+The fast path applies to one obvious action with a low-impact, reversible effect and a direct check. Check the intended effect on the intended target independently of any success message. Bail out to the full loop if the check fails or the result surfaces a competing explanation; do not use it for actions that materially alter shared state, destroy evidence, or complicate recovery.
 
 ### 1. Inspect
 
@@ -44,7 +48,7 @@ Confirm that evidence belongs to the intended version, identity, workspace, reso
 
 For an active consequential failure, prioritize authorized stabilization and preserve diagnostic evidence where practical. Do not delay urgent mitigation solely to obtain a perfect diagnosis. Record when mitigation changes the conditions being investigated.
 
-For external research, read [references/research-and-evidence.md](references/research-and-evidence.md). For unfamiliar controls or tool schemas, start with [references/probe-patterns.md](references/probe-patterns.md).
+Use the reference routing above when the evidence source or probe design warrants it.
 
 ### 2. Frame
 
@@ -65,7 +69,7 @@ Generate a small set of plausible explanations from the system's causal neighbor
 
 Ask: **What would have to be true for this observation to make sense?**
 
-Rank candidates qualitatively using available evidence. Do not invent probabilities. Note contradictory evidence and what would disconfirm the leading explanation. Keep alternatives that the evidence has not separated; allow multiple contributing causes when observations require them.
+Rank candidates qualitatively by fit to current evidence first, then by the cost of a discriminating probe, then by the cost of being wrong. Do not invent probabilities. Note contradictory evidence and what would disconfirm the leading explanation. Keep alternatives that the evidence has not separated; allow multiple contributing causes when observations require them.
 
 For capability discovery, candidates may be possible supported routes rather than failure causes. Do not manufacture a root-cause problem to fit the loop.
 
@@ -82,9 +86,11 @@ Expected outcomes -> next decision:
 Inconclusive if:
 ```
 
-Add a time or attempt limit and recovery plan when the probe's cost or effects warrant them. This is a thinking aid, not required user-facing paperwork.
+Add a time or attempt limit and recovery plan when the probe's cost or effects warrant them.
 
-Examples: verify active identity to separate identity from permissions; compare equivalent requests across clients; inspect runtime values to separate intended from effective configuration; test a participating boundary to narrow a pipeline. Read [references/probe-patterns.md](references/probe-patterns.md) for selection details and limitations.
+This template is a thinking aid, not required user-facing paperwork.
+
+Examples: verify active identity to separate identity from permissions; compare equivalent requests across clients; inspect runtime values to separate intended from effective configuration; test a participating boundary to narrow a pipeline.
 
 If every plausible result leads to the same action, skip the probe unless it independently verifies completion or a necessary precondition.
 
@@ -96,7 +102,7 @@ When causality matters, change one meaningful variable at a time. If several var
 
 Parallelize probes only when mutable state, ordering, resource contention, shared evidence, and interpretation cannot cause interference. This permits independent tool calls; it does not require agent delegation.
 
-An ambiguous timeout does not establish that an action failed to take effect. Reconcile outcome before repeating a consequential operation. Use bounded polling or retries only when supported by the operation's semantics and a reason to expect new evidence. See [references/probe-patterns.md](references/probe-patterns.md).
+An ambiguous timeout does not establish that an action failed to take effect. Reconcile outcome before repeating a consequential operation. Use bounded polling or retries only when supported by the operation's semantics and a reason to expect new evidence.
 
 ### 6. Verify and update
 
@@ -121,11 +127,13 @@ Still unknown:
 Next:
 ```
 
-For noisy evidence, ambiguous outcomes, or causal claims, consult [references/research-and-evidence.md](references/research-and-evidence.md).
+The reference routing above covers noisy evidence, ambiguous outcomes, and causal claims.
+
+This state block is a thinking aid, not required user-facing paperwork.
 
 ## Stall, budget, and reframe
 
-Exploration must continue earning its cost. Reassess after **three consecutive probes without useful information or verified progress**, or earlier when a probe is expensive, slow, risky, or hard to reverse. Three is a practical checkpoint, not a scientific threshold or permission for three risky attempts.
+Exploration must continue earning its cost. Reassess after **three consecutive probes without useful information or verified progress**, or earlier when a probe is expensive, slow, risky, or hard to reverse. Ruling out a hypothesis counts as useful information and progress. Three is a practical checkpoint, not a scientific threshold or permission for three risky attempts.
 
 Count equivalent attempts together even when commands, tools, or wording differ. Repetition is justified only when conditions, inputs, hypothesis, or information sought change. Deliberate repeated sampling of intermittent behavior is valid when bounded and informative.
 
@@ -156,6 +164,8 @@ Open / blocked by:
 Next discriminating action:
 ```
 
+This baseline is a thinking aid, not required user-facing paperwork.
+
 Persist this only when continuity requires it and storage is available. Keep secrets out; link appropriate evidence instead of copying entire logs. On resumption, revalidate volatile state before acting. Drop superseded detail unless it remains diagnostically relevant.
 
 Ask for the smallest missing decision or information when the user is the cheapest reliable source. Continue within existing authorization; ask again only when a new required decision or boundary arises. Never treat missing authority as a technical obstacle to bypass.
@@ -178,9 +188,19 @@ Important failure/recovery conditions:
 Known limits / unresolved cause, if relevant:
 ```
 
+This procedure is a thinking aid, not required user-facing paperwork.
+
 Report the outcome, decisive verification, and material remaining uncertainty. Describe mitigation as mitigation and an unverified result as unverified.
 
 **Re-enter Freestyle when new evidence invalidates the procedure, its preconditions, or the working model.** Resume from that observation instead of blindly retrying.
+
+## Anti-patterns
+
+- Repeating an equivalent attempt without changing the conditions, hypothesis, or information sought.
+- Diagnosing a remote target from a local parse error, schema rejection, or unavailable capability.
+- Declaring the objective impossible because one tool, route, or probe failed.
+- Treating a success message, dialog change, or completed command as proof that the intended target changed.
+- Polishing a dead end instead of reframing the boundary, evidence source, or strategy.
 
 ## Supporting material
 
@@ -190,4 +210,4 @@ Report the outcome, decisive verification, and material remaining uncertainty. D
 - [Evaluation scenarios](references/evaluation-scenarios.md): use when maintaining or behaviorally evaluating this skill, not during ordinary execution.
 - [Sources](references/sources.md): provenance and limits of the research-informed additions; no need to load during normal use.
 
-Freestyle changes **how** the objective is pursued, never **what is authorized**. "Find another way" does not authorize bypassing restrictions, weakening controls, concealing actions, or expanding scope.
+Freestyle changes the route to an objective, not its authorization. "Find another way" never authorizes bypassing restrictions, weakening controls, concealing actions, or expanding scope.
