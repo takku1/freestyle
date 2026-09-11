@@ -25,6 +25,16 @@ If documentation reveals a supported procedure, leave discovery and execute it. 
 
 For a pipeline, map only the stages involved in the failing path. Locate the last boundary with verified expected output and the first unexpected one. Probe between them if the intermediate result is observable and meaningful. Do not assume binary search applies when branches, feedback, or multiple failures break the ordering.
 
+### Lightweight validation matrix
+
+Use only when the answer depends on comparison, repetition, concurrency, rate limits, regression, or hidden state. Keep one row per materially different case:
+
+```text
+Case | question / variable | control or held constant | mode / repeats | observation -> decision
+```
+
+Define the control and decision signal before probing; record actual observations, not guesses. Expand the matrix only when surviving uncertainty justifies its cost. Do not create one for a single deterministic probe.
+
 ## Minimal reproduction and reduction
 
 Define what counts as the **same failure** before reducing inputs, configuration, steps, or changes. Keep a known failing baseline. Remove a portion, check whether the original failure survives, and retain useful reductions. Distinguish reproduction from a new syntax error or missing dependency. An inconclusive run is neither passing nor failing evidence.
