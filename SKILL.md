@@ -14,6 +14,7 @@ Discover the route while solving the problem.
 - **Observation != interpretation.** What happened is evidence; why it happened is a hypothesis.
 - **Execution != success.** Verify the intended effect on the intended target.
 - **Prior effort != evidence.** Drop hypotheses the evidence stops supporting.
+- **Conclusion strength <= evidence strength.** Distinguish observed fact, supported inference, working hypothesis, and unresolved possibility.
 - **Method freedom != authority expansion.** Permissions, safety, scope, and approvals remain binding.
 
 ## Entry and working agreement
@@ -53,6 +54,8 @@ Use the reference routing above when the evidence source or probe design warrant
 ### 2. Frame
 
 Ask: **What do I need to learn next for the next decision to become obvious?**
+
+Frame defines the question; hypothesize proposes answers.
 
 Define the gap between expected and observed behavior, or the missing capability between current state and the objective. Separate the observation from its explanation. Narrow to the smallest relevant boundary without assuming the defect must be inside it.
 
