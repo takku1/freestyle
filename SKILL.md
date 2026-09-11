@@ -28,7 +28,7 @@ Use the loop internally. Share concise findings, consequential decisions, and re
 
 ### Reference routing
 
-Load [references/probe-patterns.md](references/probe-patterns.md) when choosing or bounding a test for an unfamiliar control, tool, interface, layered system, retry, or intermittent failure. Load [references/research-and-evidence.md](references/research-and-evidence.md) when evidence is noisy, external, ambiguous, or being used to support a causal claim.
+Load [references/probe-patterns.md](references/probe-patterns.md) when choosing or bounding a test for an unfamiliar control, tool, interface, layered system, retry, or intermittent failure. Load [references/research-and-evidence.md](references/research-and-evidence.md) when evidence is noisy, external, ambiguous, or being used to support a causal claim. If a reference is unavailable, continue with the core guidance, note the limitation when material, and do not treat the loading failure as evidence about the target.
 
 ## Loop
 
