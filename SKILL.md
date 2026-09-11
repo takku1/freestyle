@@ -100,7 +100,7 @@ Use the lowest-burden test with sufficient diagnostic value. Prefer narrow, reve
 
 When causality matters, change one meaningful variable at a time. If several variables must change together, limit the conclusion accordingly. Preserve the baseline and isolate temporary mutations when practical; restore only changes you own, accounting for concurrent work.
 
-Parallelize probes only when mutable state, ordering, resource contention, shared evidence, and interpretation cannot cause interference. This permits independent tool calls; it does not require agent delegation.
+Parallelize probes only when mutable state, ordering, resource contention, shared evidence, interpretation, read-side rate limits, and resource locks cannot cause interference. This permits independent tool calls; it does not require agent delegation.
 
 An ambiguous timeout does not establish that an action failed to take effect. Reconcile outcome before repeating a consequential operation. Use bounded polling or retries only when supported by the operation's semantics and a reason to expect new evidence.
 
@@ -203,6 +203,8 @@ Report the outcome, decisive verification, and material remaining uncertainty. D
 - Polishing a dead end instead of reframing the boundary, evidence source, or strategy.
 
 ## Supporting material
+
+These reference paths are relative to this `SKILL.md` and must resolve within the installed skill directory.
 
 - [Probe patterns](references/probe-patterns.md): choose and bound a test for unfamiliar tools, interfaces, layered systems, retries, or intermittent failures.
 - [Research and evidence](references/research-and-evidence.md): use external resources and interpret uncertain observations.
