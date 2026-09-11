@@ -112,9 +112,13 @@ First establish whether the probe executed correctly and reached its intended ta
 
 `target response -> evidence about the target`
 
+`target not observed -> evidence about the observation path or target state`
+
 Do not diagnose a remote service from a local parse error, tool schema rejection, or unavailable capability. Transport failures may narrow a boundary without identifying the component at fault.
 
-Then compare the observation against the prediction. Classify the result as supporting, contradicting, or inconclusive. Missing logs are not evidence of absence unless the observation path was expected to capture the event. One successful attempt does not establish reliability for intermittent behavior.
+Treat probe failure, target response, and target not observed as distinct outcomes. A missing response or telemetry record does not establish that the target did not act unless the observation path was expected to capture it.
+
+Then compare the observation against the prediction. Classify the result as supporting, contradicting, or inconclusive. One successful attempt does not establish reliability for intermittent behavior.
 
 Verify against the original completion condition, preferably through an observation independent of the action's success message: inspect the saved artifact, read back the correct resource, or exercise the affected user path. Match verification depth to consequence; do not broaden testing without a reason.
 
@@ -133,7 +137,7 @@ This state block is a thinking aid, not required user-facing paperwork.
 
 ## Stall, budget, and reframe
 
-Exploration must continue earning its cost. Reassess after **three consecutive probes without useful information or verified progress**, or earlier when a probe is expensive, slow, risky, or hard to reverse. Ruling out a hypothesis counts as useful information and progress. Three is a practical checkpoint, not a scientific threshold or permission for three risky attempts.
+Exploration must continue earning its cost. Reassess after **three consecutive probes without decision-relevant information or verified progress**, or earlier when a probe is expensive, slow, risky, or hard to reverse. Ruling out a hypothesis counts as useful information and progress. Three is a practical checkpoint, not a scientific threshold or permission for three risky attempts.
 
 Count equivalent attempts together even when commands, tools, or wording differ. Repetition is justified only when conditions, inputs, hypothesis, or information sought change. Deliberate repeated sampling of intermittent behavior is valid when bounded and informative.
 
