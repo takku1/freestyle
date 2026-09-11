@@ -19,11 +19,11 @@ Discover the route while solving the problem.
 
 ## Entry and working agreement
 
-Enter when an expected procedure behaves unexpectedly, several plausible explanations imply different next actions, an unfamiliar capability must be discovered, or failure tempts an equivalent retry without new evidence. A system need not be broken: discovering a supported export path in an unfamiliar application also qualifies.
+Enter when a procedure behaves unexpectedly, competing explanations imply different next actions, an unfamiliar capability must be discovered, or failure tempts an equivalent retry. A system need not be broken; unfamiliar export discovery also qualifies.
 
-Establish the requested outcome and an observable completion condition. Identify the relevant target, environment, and constraints from available context. Ask only for missing information that materially changes the work; do not reopen settled choices or approvals. If the objective itself is unclear, clarify it rather than inventing one.
+Establish the outcome, observable completion condition, target, environment, and constraints. Ask only for missing information that changes the work; preserve settled choices and approvals. Clarify an unclear objective rather than inventing one.
 
-Retrieve a reliable procedure when that is cheaper than discovery. Apply a domain skill's known procedures when available; use Freestyle for the unresolved part, then return to execution. Do not make every task an investigation.
+Use a reliable procedure when cheaper than discovery. Apply available domain procedures; use Freestyle only for the unresolved part, then return to execution. Do not investigate every task.
 
 Use the loop internally. Share concise findings, consequential decisions, and remaining uncertainty, not a transcript of deliberation or mandatory forms.
 
@@ -37,19 +37,17 @@ Load [references/probe-patterns.md](references/probe-patterns.md) when choosing 
 
 When diagnosis is unnecessary and the next action is obvious, low-impact, reversible, and directly verifiable, use `inspect -> act -> check`.
 
-The fast path applies to one obvious action with a low-impact, reversible effect and a direct check. Check the intended effect on the intended target independently of any success message. Bail out to the full loop if the check fails or the result surfaces a competing explanation; do not use it for actions that materially alter shared state, destroy evidence, or complicate recovery.
+The fast path applies to one obvious action with a low-impact, reversible effect and a direct check. If unsure whether an action qualifies, use the full loop. Check the intended effect on the intended target independently of any success message. Bail out to the full loop if the check fails or the result surfaces a competing explanation; do not use it for actions that materially alter shared state, destroy evidence, or complicate recovery.
 
 ### 1. Inspect
 
-Establish actual behavior before changing it. Start with the cheapest reliable evidence: exact output, current state, local help, capabilities, documentation, effective configuration, logs, relevant changes, or a small reproduction.
+Establish actual behavior before changing it. Start with the cheapest reliable evidence: exact output, current state, help, capabilities, documentation, effective configuration, logs, relevant changes, or a small reproduction.
 
-Confirm that evidence belongs to the intended version, identity, workspace, resource, and time window. Inspect only the relevant configuration; avoid dumping credentials or unrelated private data. Preserve exact error text and useful identifiers in appropriate local artifacts when needed.
+Confirm evidence belongs to the intended version, identity, workspace, resource, and time window. Inspect only relevant configuration; avoid credentials and unrelated private data. Preserve exact errors and useful identifiers when needed.
 
 **Inspection is not automatically non-invasive.** Reading a queue may consume a message; opening a page may mark an item read; reproduction may create a job. Check likely effects before treating an operation as observation.
 
-For an active consequential failure, prioritize authorized stabilization and preserve diagnostic evidence where practical. Do not delay urgent mitigation solely to obtain a perfect diagnosis. Record when mitigation changes the conditions being investigated.
-
-Use the reference routing above when the evidence source or probe design warrants it.
+For an active consequential failure, prioritize authorized stabilization and preserve evidence where practical. Do not delay urgent mitigation for a perfect diagnosis. Record when mitigation changes the conditions investigated.
 
 ### 2. Frame
 
@@ -90,8 +88,6 @@ Inconclusive if:
 ```
 
 Add a time or attempt limit and recovery plan when the probe's cost or effects warrant them.
-
-This template is a thinking aid, not required user-facing paperwork.
 
 Examples: verify active identity to separate identity from permissions; compare equivalent requests across clients; inspect runtime values to separate intended from effective configuration; test a participating boundary to narrow a pipeline.
 
@@ -134,10 +130,6 @@ Still unknown:
 Next:
 ```
 
-The reference routing above covers noisy evidence, ambiguous outcomes, and causal claims.
-
-This state block is a thinking aid, not required user-facing paperwork.
-
 ## Stall, budget, and reframe
 
 Exploration must continue earning its cost. Reassess after **three consecutive probes without decision-relevant information or verified progress**, or earlier when a probe is expensive, slow, risky, or hard to reverse. Ruling out a hypothesis counts as useful information and progress. Three is a practical checkpoint, not a scientific threshold or permission for three risky attempts.
@@ -171,8 +163,6 @@ Open / blocked by:
 Next discriminating action:
 ```
 
-This baseline is a thinking aid, not required user-facing paperwork.
-
 Persist this only when continuity requires it and storage is available. Keep secrets out; link appropriate evidence instead of copying entire logs. On resumption, revalidate volatile state before acting. Drop superseded detail unless it remains diagnostically relevant.
 
 Ask for the smallest missing decision or information when the user is the cheapest reliable source. Continue within existing authorization; ask again only when a new required decision or boundary arises. Never treat missing authority as a technical obstacle to bypass.
@@ -183,7 +173,7 @@ If blocked, report what is established, the specific blocker, what is needed, an
 
 Freestyle exists to make itself unnecessary.
 
-Stop exploring when the objective is verified, a workable procedure applies, or remaining uncertainty would not change the next action. Complete the authorized execution; discovering a route alone is not completion of a request to perform the work.
+Stop when the objective is verified, a workable procedure applies, or remaining uncertainty would not change the next action. Complete authorized execution; discovering a route alone does not complete a request to perform the work.
 
 Preserve a reusable procedure only when it has future value:
 
@@ -194,8 +184,6 @@ Verification:
 Important failure/recovery conditions:
 Known limits / unresolved cause, if relevant:
 ```
-
-This procedure is a thinking aid, not required user-facing paperwork.
 
 Report the outcome, decisive verification, and material remaining uncertainty. Describe mitigation as mitigation and an unverified result as unverified.
 
